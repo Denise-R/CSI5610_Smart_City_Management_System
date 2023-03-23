@@ -2,6 +2,11 @@
 Irma Rrushi
 Part 6: Emergency Services Management (01 Matrix)
 """
+"""
+If we think of the city as a grid, where the emergency services are located in cells with value  0 and the other cells are 1. 
+The algorithm would find the ETA of the emergency services. Example, if something happens at cell x and  if the shortest distance
+is 3 from the nearest 0/emergency service, then the ETA would be let’s say 3 min.
+"""
 
 class Solution:
     
@@ -28,4 +33,3 @@ class Solution:
                         mat[i][j] = min(left, right, up, down) + 1     #assign to the cell the minimum between the neighbor cells plus 1
         
         return mat           #return matrix
-         
