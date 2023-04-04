@@ -8,7 +8,7 @@ class Ui_FoodManagement(object):
     def setupUiFood(self, FoodManagement):
         FoodManagement.setObjectName("FoodManagement")
         FoodManagement.resize(502, 731)
-        FoodManagement.setWindowIcon(QtGui.QIcon('ou_logo.jpg'))
+        FoodManagement.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
         FoodManagement.setStyleSheet("background-color: #123456;")
 
         self.centralwidget = QtWidgets.QWidget(FoodManagement)
@@ -184,9 +184,9 @@ class Ui_FoodManagement(object):
         self.help.setObjectName("help")
         self.menuOptions.addAction(self.home)
         self.home.triggered.connect(self.homePressed)
-        self.home.setIcon(QtGui.QIcon('home.png'))
+        self.home.setIcon(QtGui.QIcon('./pictures/home.png'))
         self.help.triggered.connect(self.helpPressed)
-        self.help.setIcon(QtGui.QIcon('question.png'))
+        self.help.setIcon(QtGui.QIcon('./pictures/question.png'))
         self.menuOptions.addAction(self.help)
         self.menubar.addAction(self.menuOptions.menuAction())
 
@@ -207,16 +207,16 @@ class Ui_FoodManagement(object):
         days = foodConsumptionManagement(int(meals))
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-        msg.setWindowIcon(QtGui.QIcon('ou_logo.jpg'))
+        msg.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
         msg.setWindowTitle("Food Consumption Info")
         msg.setText("\nCurrent number of meal(s): " + str(meals) +
                             "\n\nMinimum number of days to consume meal(s): " + str(days) + "    ")
         msg.exec_()
 
     def homePressed(self):
-        import QTDesigner.homePage
+        import homePage
         self.homeWindow = QtWidgets.QMainWindow()
-        self.homeui = QTDesigner.homePage.Ui_MainWindow()
+        self.homeui = homePage.Ui_MainWindow()
         self.homeui.setupUiHome(self.homeWindow)
         #FoodManagement.hide()
         self.homeWindow.show()
@@ -225,7 +225,7 @@ class Ui_FoodManagement(object):
     def helpPressed(self):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-        msg.setWindowIcon(QtGui.QIcon('question.png'))
+        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
         msg.setWindowTitle("Help: Food Consumption")
         msg.setText("How to use food Management window described")
         msg.exec_()
