@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.resource.setFont(font)
         self.resource.setObjectName("resource")
 
-        self.transport = QtWidgets.QPushButton(self.frame1)
+        self.transport = QtWidgets.QPushButton(self.frame1, clicked=self.transport)
         self.transport.setGeometry(QtCore.QRect(530, 170, 221, 111))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
@@ -119,6 +119,14 @@ class Ui_MainWindow(object):
         self.foodUI.setupUiFood(self.foodWindow)
         MainWindow.hide()
         self.foodWindow.show()
+        
+    def transport(self):
+        import QTDesigner.transport
+        self.transportWindow = QtWidgets.QMainWindow()
+        self.transportUI = QTDesigner.transport.Ui_MainWindow()
+        self.transportUI.setupUi(self.transportWindow)
+        MainWindow.hide()
+        self.transportWindow.show()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
