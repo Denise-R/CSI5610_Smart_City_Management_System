@@ -54,7 +54,7 @@
       <set>Qt::NoTextInteraction</set>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="comboBox_Start">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -206,7 +206,7 @@
       <string>GO</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_3">
+    <widget class="QComboBox" name="comboBox_Dest">
      <property name="geometry">
       <rect>
        <x>10</x>
