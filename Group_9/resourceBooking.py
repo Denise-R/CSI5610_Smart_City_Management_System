@@ -67,10 +67,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def populate_resource_list(self):
         for resource in self.resources:
-            self.list_resources.addItem(resource.name)
+        #    self.list_resources.addItem(resource.name)
+             self.book_resource
 
     def book_resource(self):
         resource = self.resources[self.list_resources.currentRow()]
+        #resource = self.resources[self.book_resource]
         start_time = datetime.strptime(self.txt_start_time.text(), '%Y-%m-%d %H:%M')
         end_time = datetime.strptime(self.txt_end_time.text(), '%Y-%m-%d %H:%M')
         if resource.check_availability(start_time, end_time):
