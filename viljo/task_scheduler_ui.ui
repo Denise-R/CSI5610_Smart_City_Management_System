@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>TaskSchedulerWindow</class>
+ <widget class="QMainWindow" name="TaskSchedulerWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -32,7 +32,7 @@
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>Department</string>
+            <string>Department:</string>
            </property>
           </widget>
          </item>
@@ -86,6 +86,16 @@
           </widget>
          </item>
          <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Responsible:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="responsible_lineEdit"/>
+         </item>
+         <item>
           <widget class="QLabel" name="label_2">
            <property name="text">
             <string>Time Estimate (hours):</string>
@@ -93,15 +103,12 @@
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="hours_doubleSpinBox">
+          <widget class="QSpinBox" name="hours_spinBox">
            <property name="minimum">
-            <double>0.250000000000000</double>
+            <number>1</number>
            </property>
            <property name="maximum">
-            <double>8.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.250000000000000</double>
+            <number>8</number>
            </property>
           </widget>
          </item>
@@ -133,10 +140,30 @@
           <widget class="QListWidget" name="tasks_listWidget"/>
          </item>
          <item>
-          <widget class="QPushButton" name="remove_pushButton">
-           <property name="text">
-            <string>Remove Task</string>
-           </property>
+          <widget class="QWidget" name="widget" native="true">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QPushButton" name="remove_pushButton">
+              <property name="text">
+               <string>Remove Task</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="savet_pushButton">
+              <property name="text">
+               <string>Save Tasks</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="load_pushButton">
+              <property name="text">
+               <string>Load Tasks</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </item>
         </layout>
@@ -148,10 +175,36 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QPushButton" name="generate_pushButton">
-          <property name="text">
-           <string>Generate Schedule</string>
-          </property>
+         <widget class="QWidget" name="widget_2" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QPushButton" name="generate_pushButton">
+             <property name="text">
+              <string>Generate Schedule</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="saves_pushButton">
+             <property name="text">
+              <string>Save Schedule</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
         <item>
