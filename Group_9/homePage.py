@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         self.titleLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.titleLabel.setObjectName("titleLabel")
 
-        self.task = QtWidgets.QPushButton(self.frame1)
+        self.task = QtWidgets.QPushButton(self.frame1, clicked=self.task)
         self.task.setGeometry(QtCore.QRect(50, 170, 221, 111))
         self.task.setStyleSheet("background-image : url(./pictures/task.png);")
         font = QtGui.QFont()
@@ -48,7 +48,7 @@ class Ui_MainWindow(object):
 
         self.transport = QtWidgets.QPushButton(self.frame1, clicked=self.transport)
         self.transport.setGeometry(QtCore.QRect(530, 170, 221, 111))
-        self.transport.setStyleSheet("background-image : url(./pictures/map.jpg);")
+        self.transport.setStyleSheet("background-image : url(./pictures/mapHome.jpg);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.transport.setFont(font)
         self.transport.setObjectName("transport")
 
-        self.booking = QtWidgets.QPushButton(self.frame1)
+        self.booking = QtWidgets.QPushButton(self.frame1,  clicked=self.booking)
         self.booking.setGeometry(QtCore.QRect(50, 320, 221, 111))
         self.booking.setStyleSheet("background-image : url(./pictures/booking.png);")
         font = QtGui.QFont()
@@ -114,22 +114,38 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-
-    def food(self):
-        import food
-        self.foodWindow = QtWidgets.QMainWindow()
-        self.foodUI = food.Ui_FoodManagement()
-        self.foodUI.setupUiFood(self.foodWindow)
-        MainWindow.hide()
-        self.foodWindow.show()
+    def task(self):
+        import task_scheduler
+        self.taskWindow = QtWidgets.QMainWindow()
+        self.taskUI = task_scheduler.Ui_TaskSchedulerWindow()
+        self.taskUI.setupUi(self.taskWindow)
+        #MainWindow.hide()
+        self.taskWindow.show()
 
     def transport(self):
         import transport
         self.transportWindow = QtWidgets.QMainWindow()
         self.transportUI = transport.Ui_MainWindow()
         self.transportUI.setupUi(self.transportWindow)
-        MainWindow.hide()
+        #MainWindow.hide()
         self.transportWindow.show()
+
+    def booking(self):
+        import resource_booking
+        self.bookWindow = QtWidgets.QMainWindow()
+        self.bookUI = resource_booking.Ui_MainWindow()
+        self.bookUI.setupUi(self.bookWindow)
+        #MainWindow.hide()
+        self.bookWindow.show()
+
+    def food(self):
+        import food
+        self.foodWindow = QtWidgets.QMainWindow()
+        self.foodUI = food.Ui_FoodManagement()
+        self.foodUI.setupUiFood(self.foodWindow)
+        #MainWindow.hide()
+        self.foodWindow.show()
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
