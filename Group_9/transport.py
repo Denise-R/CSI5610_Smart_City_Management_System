@@ -5,8 +5,8 @@ from PyQt5.QtWidgets import QMessageBox
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(820, 435)
+        MainWindow.setObjectName("Transportation Management")
+        MainWindow.resize(820, 505)
         MainWindow.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
         MainWindow.setStyleSheet("background-color: #123456;")
 
@@ -14,20 +14,37 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
 
         self.frame1 = QtWidgets.QFrame(self.centralwidget)
-        self.frame1.setGeometry(QtCore.QRect(20, 10, 781, 411))
+        self.frame1.setGeometry(QtCore.QRect(20, 10, 781, 481))
         self.frame1.setStyleSheet("background-color: white;")
         self.frame1.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame1.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame1.setObjectName("frame1")
 
+        self.label1 = QtWidgets.QLabel(self.frame1)
+        self.label1.setGeometry(QtCore.QRect(5, 5, 781, 30))
+        self.label1.setObjectName("label")
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(16)
+        font.setBold(True)
+        self.label1.setFont(font)
+        self.label1.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.line = QtWidgets.QFrame(self.frame1)
+        self.line.setGeometry(QtCore.QRect(30, 35, 781, 20))
+        self.line.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.line.setLineWidth(5)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setObjectName("line")
+
         self.label = QtWidgets.QLabel(self.frame1)
-        self.label.setGeometry(QtCore.QRect(285, 0, 496, 411))
+        self.label.setGeometry(QtCore.QRect(285, 70, 496, 411))
         self.label.setObjectName("label")
         self.pixmap = QtGui.QPixmap('./pictures/Map.jpg')
         self.label.setPixmap(self.pixmap)
 
         self.comboBox_Start = QtWidgets.QComboBox(self.frame1)
-        self.comboBox_Start.setGeometry(QtCore.QRect(140, 10, 125, 25))
+        self.comboBox_Start.setGeometry(QtCore.QRect(140, 80, 125, 25))
         self.comboBox_Start.setObjectName("comboBox_Start")
         self.comboBox_Start.addItem("")
         self.comboBox_Start.addItem("")
@@ -50,7 +67,7 @@ class Ui_MainWindow(object):
         self.comboBox_Start.setFont(font)
 
         self.startLabel = QtWidgets.QLabel(self.frame1)
-        self.startLabel.setGeometry(QtCore.QRect(10, 10, 130, 25))
+        self.startLabel.setGeometry(QtCore.QRect(10, 80, 130, 25))
         self.startLabel.setObjectName("startLabel")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
@@ -59,7 +76,7 @@ class Ui_MainWindow(object):
         self.startLabel.setFont(font)
 
         self.destinationLabel = QtWidgets.QLabel(self.frame1)
-        self.destinationLabel.setGeometry(QtCore.QRect(10, 60, 130, 25))
+        self.destinationLabel.setGeometry(QtCore.QRect(10, 130, 130, 25))
         self.destinationLabel.setObjectName("destinationLabel")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
@@ -68,7 +85,7 @@ class Ui_MainWindow(object):
         self.destinationLabel.setFont(font)
 
         self.routeLabel = QtWidgets.QLabel(self.frame1)
-        self.routeLabel.setGeometry(QtCore.QRect(10, 190, 61, 20))
+        self.routeLabel.setGeometry(QtCore.QRect(10, 260, 61, 20))
         self.routeLabel.setObjectName("routeLabel")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
@@ -77,7 +94,7 @@ class Ui_MainWindow(object):
         self.routeLabel.setFont(font)
 
         self.submitButton = QtWidgets.QPushButton(self.frame1, clicked=self.racecar)
-        self.submitButton.setGeometry(QtCore.QRect(30, 110, 215, 51))
+        self.submitButton.setGeometry(QtCore.QRect(30, 180, 215, 51))
         self.submitButton.setObjectName("submitButton")
         self.submitButton.setStyleSheet("background-color: #99A3A4;")
         font = QtGui.QFont()
@@ -87,7 +104,7 @@ class Ui_MainWindow(object):
         self.submitButton.setFont(font)
 
         self.comboBox_Dest = QtWidgets.QComboBox(self.frame1)
-        self.comboBox_Dest.setGeometry(QtCore.QRect(140, 60, 125, 25))
+        self.comboBox_Dest.setGeometry(QtCore.QRect(140, 130, 125, 25))
         self.comboBox_Dest.setObjectName("comboBox_Dest")
         self.comboBox_Dest.addItem("")
         self.comboBox_Dest.addItem("")
@@ -111,7 +128,7 @@ class Ui_MainWindow(object):
 
         # table widget
         self.tableWidget = QtWidgets.QTableWidget(self.frame1)
-        self.tableWidget.setGeometry(QtCore.QRect(10, 220, 260, 181))
+        self.tableWidget.setGeometry(QtCore.QRect(10, 290, 260, 181))
         self.tableWidget.setColumnCount(2)
         __qtablewidgetitem = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
@@ -181,6 +198,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Transportation Management"))
         self.label.setText("")
+        self.label1.setText(_translate("MainWindow", "Transportation Management"))
         self.comboBox_Start.setItemText(0,  _translate("MainWindow", "The Shire"))
         self.comboBox_Start.setItemText(1,  _translate("MainWindow", "Bree"))
         self.comboBox_Start.setItemText(2,  _translate("MainWindow", "RivenDell"))
