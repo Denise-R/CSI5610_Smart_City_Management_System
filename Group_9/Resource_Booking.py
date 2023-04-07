@@ -58,10 +58,8 @@ class Ui_MainWindow(object):
         self.calendarWidget.setGeometry(QtCore.QRect(30, 110, 390, 215))
         self.calendarWidget.setObjectName("calendarWidget")
         self.calendarWidget.setStyleSheet("background-color: gray; border: 1px solid black;")
-        font = QtGui.QFont()
-        font.setFamily("Times New Roman")
-        font.setPointSize(4)
-        self.centralwidget.setFont(font)
+        #self.calendarWidget.selectedDate()
+        #self.calendarWidget.clicked[QtCore.QDate].connect(self.showDate)
 
         self.resourceLabel = QtWidgets.QLabel(self.frame1)
         self.resourceLabel.setObjectName(u"resourceLabel")
@@ -156,12 +154,18 @@ class Ui_MainWindow(object):
         msg.setText("How to use Resource Booking Management window described ...")
         msg.exec_()
 
+
     def book(self):
         msg = QMessageBox()
+        date = self.calendarWidget.selectedDate()
+        strDate = date.toString()
+        resource = self.comboBox.currentText()
+        amount = self.spinBox.value()
         msg.setIcon(QMessageBox.Information)
         msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
         msg.setWindowTitle("Resource Booking Management")
-        msg.setText("resource booked -- connect algorithm")
+        msg.setText("resource booked -- connect algorithm. \n\n The date is : " + strDate +
+                    "\n The resource requested is: " + resource + "\n The amount needed is: " + str(amount))
         msg.exec_()
 
     def retranslateUi(self, MainWindow):
