@@ -110,20 +110,19 @@ class Ui_MainWindow(object):
         self.comboBox_Dest.setFont(font)
 
         # table widget
-        '''self.tableWidget = QTableWidget(self.frame)
-        if (self.tableWidget.columnCount() < 2):
-            self.tableWidget.setColumnCount(2)
-        __qtablewidgetitem = QTableWidgetItem()
+        self.tableWidget = QtWidgets.QTableWidget(self.frame1)
+        self.tableWidget.setGeometry(QtCore.QRect(10, 220, 260, 181))
+        self.tableWidget.setColumnCount(2)
+        __qtablewidgetitem = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
-        __qtablewidgetitem1 = QTableWidgetItem()
+        __qtablewidgetitem1 = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        self.tableWidget.setObjectName(u"tableWidget")
-        self.tableWidget.setGeometry(QRect(10, 220, 260, 181))
         self.tableWidget.setStyleSheet("border: 1px solid black;")
-        font = QFont()
+        self.tableWidget.setObjectName(u"tableWidget")
+        font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(9)
-        self.tableWidget.setFont(font)'''
+        self.tableWidget.setFont(font)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -168,7 +167,15 @@ class Ui_MainWindow(object):
         msg.exec_()
 
     def racecar(self):
-        print("racecar algorithm called")
+        msg = QMessageBox()
+        start = self.comboBox_Start.currentText()
+        dest = self.comboBox_Dest.currentText()
+        msg.setIcon(QMessageBox.Information)
+        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowTitle("Transportation Management")
+        msg.setText("Transportation Management -- connect algorithm. \n\n The start location is : " + start +
+                    "\n The destination is: " + dest)
+        msg.exec_()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -210,10 +217,10 @@ class Ui_MainWindow(object):
         self.comboBox_Dest.setItemText(13, _translate("MainWindow", "Dead Marshes"))
         self.comboBox_Dest.setItemText(14, _translate("MainWindow", "Mount Doom"))
 
-        '''___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
+        ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Realms", None));
         ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Distance", None));'''
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Distance", None));
 
 if __name__ == "__main__":
     import sys
