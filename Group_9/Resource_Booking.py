@@ -1,68 +1,191 @@
-# -*- coding: utf-8 -*-
-
-################################################################################
-## Form generated from reading UI file 'Resource_Booking.ui'
-##
-## Created by: Qt User Interface Compiler version 5.15.2
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
 from PySide2.QtCore import *
-from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(641, 404)
-        self.centralwidget = QWidget(MainWindow)
-        self.centralwidget.setObjectName(u"centralwidget")
-        self.label = QLabel(self.centralwidget)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(230, 10, 141, 51))
-        self.comboBox = QComboBox(self.centralwidget)
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(679, 430)
+        MainWindow.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
+        MainWindow.setStyleSheet("background-color: #123456;")
+
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+
+        self.frame1 = QtWidgets.QFrame(self.centralwidget)
+        self.frame1.setGeometry(QtCore.QRect(19, 19, 641, 365))
+        self.frame1.setStyleSheet("background-color: white;")
+        self.frame1.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame1.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame1.setObjectName("frame1")
+
+        self.label = QtWidgets.QLabel(self.frame1)
+        self.label.setGeometry(QtCore.QRect(5, 5, 641, 30))
+        self.label.setObjectName("label")
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(16)
+        font.setBold(True)
+        self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.line = QtWidgets.QFrame(self.frame1)
+        self.line.setGeometry(QtCore.QRect(30, 35, 581, 20))
+        self.line.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.line.setLineWidth(5)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setObjectName("line")
+
+        self.calendarLabel = QtWidgets.QLabel(self.frame1)
+        self.calendarLabel.setObjectName(u"calendarLabel")
+        self.calendarLabel.setGeometry(QtCore.QRect(30, 70, 390, 20))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setBold(True)
+        font.setPointSize(10)
+        self.calendarLabel.setFont(font)
+        self.calendarLabel.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.calendarline = QtWidgets.QFrame(self.frame1)
+        self.calendarline.setGeometry(QtCore.QRect(70, 95, 310, 5))
+        self.calendarline.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.calendarline.setLineWidth(2)
+        self.calendarline.setFrameShape(QtWidgets.QFrame.HLine)
+        self.calendarline.setObjectName("calendarline")
+
+        self.calendarWidget = QtWidgets.QCalendarWidget(self.frame1)
+        self.calendarWidget.setGeometry(QtCore.QRect(30, 110, 390, 215))
+        self.calendarWidget.setObjectName("calendarWidget")
+        self.calendarWidget.setStyleSheet("background-color: gray; border: 1px solid black;")
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(4)
+        self.centralwidget.setFont(font)
+
+        self.resourceLabel = QtWidgets.QLabel(self.frame1)
+        self.resourceLabel.setObjectName(u"resourceLabel")
+        self.resourceLabel.setGeometry(QtCore.QRect(450, 110, 130, 30))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setBold(True)
+        font.setPointSize(10)
+        self.resourceLabel.setFont(font)
+
+        self.comboBox = QtWidgets.QComboBox(self.frame1)
+        self.comboBox.setGeometry(QtCore.QRect(450, 150, 172, 32))
+        self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setGeometry(QRect(430, 100, 91, 32))
-        self.calendarWidget = QCalendarWidget(self.centralwidget)
-        self.calendarWidget.setObjectName(u"calendarWidget")
-        self.calendarWidget.setGeometry(QRect(90, 100, 312, 173))
-        self.spinBox = QSpinBox(self.centralwidget)
-        self.spinBox.setObjectName(u"spinBox")
-        self.spinBox.setGeometry(QRect(460, 160, 42, 22))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(9)
+        self.comboBox.setFont(font)
+
+        self.label4 = QtWidgets.QLabel(self.frame1)
+        self.label4.setObjectName(u"label4")
+        self.label4.setGeometry(QtCore.QRect(450, 230, 120, 30))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setBold(True)
+        font.setPointSize(10)
+        self.label4.setFont(font)
+
+        self.spinBox = QtWidgets.QSpinBox(self.frame1)
+        self.spinBox.setGeometry(QtCore.QRect(580, 235, 42, 20))
         self.spinBox.setMinimum(1)
         self.spinBox.setMaximum(24)
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(410, 230, 131, 32))
+        self.spinBox.setObjectName("spinBox")
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(9)
+        self.spinBox.setFont(font)
+
+        self.submitButton = QtWidgets.QPushButton(self.frame1, clicked=self.book)
+        self.submitButton.setGeometry(QtCore.QRect(450, 280, 172, 32))
+        self.submitButton.setObjectName("btn_book_resource")
+        self.submitButton.setStyleSheet("background-color: #99A3A4;")
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setBold(True)
+        font.setPointSize(12)
+        self.submitButton.setFont(font)
+
+
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QMenuBar(MainWindow)
-        self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 641, 24))
+
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 641, 24))
+        self.menubar.setObjectName("menubar")
+        self.menubar.setStyleSheet("background-color: white; color: black;")
+
+        self.menuOptions = QtWidgets.QMenu(self.menubar)
+        self.menuOptions.setObjectName("menuOptions")
         MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QStatusBar(MainWindow)
-        self.statusbar.setObjectName(u"statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+
+        self.home = QtWidgets.QAction(MainWindow)
+        self.home.setObjectName("home")
+        self.help = QtWidgets.QAction(MainWindow)
+        self.help.setObjectName("help")
+        self.menuOptions.addAction(self.home)
+        self.home.triggered.connect(self.homePressed)
+        self.home.setIcon(QtGui.QIcon('./pictures/home.png'))
+        self.help.triggered.connect(self.helpPressed)
+        self.help.setIcon(QtGui.QIcon('./pictures/question.png'))
+        self.menuOptions.addAction(self.help)
+        self.menubar.addAction(self.menuOptions.menuAction())
 
         self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        QMetaObject.connectSlotsByName(MainWindow)
-    # setupUi
+    def homePressed(self):
+        import homePage
+        self.homeWindow = QtWidgets.QMainWindow()
+        self.homeui = homePage.Ui_MainWindow()
+        self.homeui.setupUiHome(self.homeWindow)
+        self.homeWindow.show()
+
+
+    def helpPressed(self):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowTitle("Help: Resource Booking Management")
+        msg.setText("How to use Resource Booking Management window described ...")
+        msg.exec_()
+
+    def book(self):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowTitle("Resource Booking Management")
+        msg.setText("resource booked -- connect algorithm")
+        msg.exec_()
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Resource Booking", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Public Bus", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Vehicle", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"Conference Room", None))
-        self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"Book", None))
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.menuOptions.setTitle(_translate("FoodManagement", "Options"))
+        self.home.setText(_translate("FoodManagement", "Home"))
+        self.help.setText(_translate("FoodManagement", "Help"))
+        self.label.setText(_translate("MainWindow", "Resource Booking"))
+        self.resourceLabel.setText(QCoreApplication.translate("MainWindow", u"Select Resource:", None))
+        self.calendarLabel.setText(QCoreApplication.translate("MainWindow", u"Select Day(s)", None))
+        self.label4.setText(QCoreApplication.translate("MainWindow", u"Amount needed: ", None))
+        self.comboBox.setItemText(0, _translate("MainWindow", "Public Bus"))
+        self.comboBox.setItemText(1, _translate("MainWindow", "Vehicle"))
+        self.comboBox.setItemText(2, _translate("MainWindow", "Conference Room"))
+        self.comboBox.setItemText(3, _translate("MainWindow", "Book"))
+        self.submitButton.setText(_translate("MainWindow", "Submit"))
 
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Book Resource", None))
-    # retranslateUi
 
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
