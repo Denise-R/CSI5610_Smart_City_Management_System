@@ -170,11 +170,11 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Resource Booking Management"))
         self.menuOptions.setTitle(_translate("FoodManagement", "Options"))
         self.home.setText(_translate("FoodManagement", "Home"))
         self.help.setText(_translate("FoodManagement", "Help"))
-        self.label.setText(_translate("MainWindow", "Resource Booking"))
+        self.label.setText(_translate("MainWindow", "Resource Booking Management"))
         self.resourceLabel.setText(QCoreApplication.translate("MainWindow", u"Select Resource:", None))
         self.calendarLabel.setText(QCoreApplication.translate("MainWindow", u"Select Day(s)", None))
         self.label4.setText(QCoreApplication.translate("MainWindow", u"Amount needed: ", None))
