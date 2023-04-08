@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         self.task.setFont(font)
         self.task.setObjectName("task")
 
-        self.resource = QtWidgets.QPushButton(self.frame1)
+        self.resource = QtWidgets.QPushButton(self.frame1, clicked=self.resource)
         self.resource.setGeometry(QtCore.QRect(290, 170, 221, 111))
         self.resource.setStyleSheet("background-image : url(./pictures/.png);")
         font = QtGui.QFont()
@@ -76,7 +76,7 @@ class Ui_MainWindow(object):
         self.food.setFont(font)
         self.food.setObjectName("food")
 
-        self.emergency = QtWidgets.QPushButton(self.frame1)
+        self.emergency = QtWidgets.QPushButton(self.frame1, clicked=self.emergency)
         self.emergency.setGeometry(QtCore.QRect(530, 320, 221, 111))
         self.emergency.setStyleSheet("background-image : url(./pictures/ambulance.png);")
         font = QtGui.QFont()
@@ -122,6 +122,14 @@ class Ui_MainWindow(object):
         #MainWindow.hide()
         self.taskWindow.show()
 
+    def resource(self):
+        import resource
+        self.resourceWindow = QtWidgets.QMainWindow()
+        self.resourceUI = resource.Ui_MainWindow()
+        self.resourceUI.setupUi(self.resourceWindow)
+        # MainWindow.hide()
+        self.resourceWindow.show()
+
     def transport(self):
         import transport
         self.transportWindow = QtWidgets.QMainWindow()
@@ -145,6 +153,14 @@ class Ui_MainWindow(object):
         self.foodUI.setupUiFood(self.foodWindow)
         #MainWindow.hide()
         self.foodWindow.show()
+
+    def emergency(self):
+        import emergency
+        self.emergencyWindow = QtWidgets.QMainWindow()
+        self.emergencyUI = emergency.Ui_MainWindow()
+        self.emergencyUI.setupUi(self.emergencyWindow)
+        #MainWindow.hide()
+        self.emergencyWindow.show()
 
 
     def retranslateUi(self, MainWindow):
