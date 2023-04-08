@@ -114,6 +114,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+
     def task(self):
         import task_scheduler
         self.taskWindow = QtWidgets.QMainWindow()
