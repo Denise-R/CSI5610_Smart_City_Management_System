@@ -1,8 +1,9 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
+from datetime import datetime, timedelta
 
 
-from food_Consumption_Management import foodConsumptionManagement
+
 
 class Ui_FoodManagement(object):
     def setupUiFood(self, FoodManagement):
@@ -206,11 +207,14 @@ class Ui_FoodManagement(object):
         meals = self.outputLabel.text()
         days = foodConsumptionManagement(int(meals))
         msg = QMessageBox()
+        starvationDate = datetime.now().date() + timedelta(days=days)
+        starvationDate = starvationDate.strftime('%m/%d/%Y')
         msg.setIcon(QMessageBox.Information)
         msg.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
         msg.setWindowTitle("Food Consumption Info")
         msg.setText("\nCurrent number of meal(s): " + str(meals) +
-                            "\n\nMinimum number of days to consume meal(s): " + str(days) + "    ")
+                            "\n\nMinimum number of days to consume meal(s): " + str(days) +
+                    "\n\nMeals will run out on: " + str(starvationDate))
         msg.exec_()
 
     def homePressed(self):
@@ -251,6 +255,44 @@ class Ui_FoodManagement(object):
         self.button0.setText(_translate("FoodManagement", "0"))
         self.entryLabel.setText(_translate("FoodManagement", "Enter the number of meals available: "))
 
+
+def foodConsumptionManagement(n):
+    """Because we go through the BFS tree one layer at a time, if a value is visited multiple times either:
+            1. The path taken to reach the already known value is determined not to be the fasted route
+            2. At least two different paths can reach that value at the same layer, and therefore took
+                the same number of days.
+        Anytime q[0][0] == 1 (q[0][0] will never = 0 before q[0][0] = 1) a minimum path has been found.
+        Another minimum path may also exist in the same layer, however, it will take the same number of days
+        to eat the initial number of meals, n"""
+    visited_values = set()
+    q = [[n, 0]]
+    while q[0][0] != 1:
+        if q[0][0] not in visited_values:
+            # Case 1: eat one meal
+            case1 = q[0][0] - 1
+            days = q[0][1] + 1
+            q.append([case1, days])
+
+            # Case 2: eat half the meals (n/2)
+            if q[0][0] % 2 == 0:
+                case2 = q[0][0] / 2
+                q.append([case2, days])
+
+            # Case 3: eat 2/3 of the meals 2(n/3)
+            if q[0][0] % 3 == 0:
+                case3 = q[0][0] / 3
+                q.append([case3, days])
+
+            # q[0][0] is added to the set of visited_values
+            visited_values.add(q[0][0])
+
+        # remove this value from the list
+        q.pop(0)
+
+    """No matter what path we use to eat the meals, we will always end up with 1 meal left, 
+        that will always take 1 day to eat."""
+    min_days = q[0][1] + 1
+    return min_days
 
 if __name__ == "__main__":
     import sys
