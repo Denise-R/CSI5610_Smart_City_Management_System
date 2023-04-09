@@ -516,6 +516,8 @@ class Ui_MainWindow(object):
 
     def print_eta(self, i, j):
         x = self.mat[i - 1][j - 1]
+        if(x == 0):
+            x = 0.15
         t = str(x)
         self.Result.setText(t)
 
