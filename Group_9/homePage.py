@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
 
         self.resource = QtWidgets.QPushButton(self.frame1, clicked=self.resource)
         self.resource.setGeometry(QtCore.QRect(290, 170, 221, 111))
-        self.resource.setStyleSheet("background-image : url(./pictures/.png);")
+        self.resource.setStyleSheet("background-image : url(./pictures/resource.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -48,7 +48,7 @@ class Ui_MainWindow(object):
 
         self.transport = QtWidgets.QPushButton(self.frame1, clicked=self.transport)
         self.transport.setGeometry(QtCore.QRect(530, 170, 221, 111))
-        self.transport.setStyleSheet("background-image : url(./pictures/mapHome.jpg);")
+        self.transport.setStyleSheet("background-image : url(./pictures/transport.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -58,7 +58,7 @@ class Ui_MainWindow(object):
 
         self.booking = QtWidgets.QPushButton(self.frame1,  clicked=self.booking)
         self.booking.setGeometry(QtCore.QRect(50, 320, 221, 111))
-        self.booking.setStyleSheet("background-image : url(./pictures/booking.png);")
+        self.booking.setStyleSheet("background-image : url(./pictures/book.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -68,7 +68,7 @@ class Ui_MainWindow(object):
 
         self.food = QtWidgets.QPushButton(self.frame1, clicked=self.food)
         self.food.setGeometry(QtCore.QRect(290, 320, 221, 111))
-        self.food.setStyleSheet("background-image : url(./pictures/foodImage.png);")
+        self.food.setStyleSheet("background-image : url(./pictures/food.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -78,7 +78,7 @@ class Ui_MainWindow(object):
 
         self.emergency = QtWidgets.QPushButton(self.frame1, clicked=self.emergency)
         self.emergency.setGeometry(QtCore.QRect(530, 320, 221, 111))
-        self.emergency.setStyleSheet("background-image : url(./pictures/ambulance.png);")
+        self.emergency.setStyleSheet("background-image : url(./pictures/emergency.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
