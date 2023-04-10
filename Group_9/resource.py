@@ -192,7 +192,13 @@ class Ui_MainWindow(object):
         strCurrentCode = ", " + currentCode + ", "
         allCodes = self.codeTextBrowser.toPlainText()
         allCodesList = allCodes.split(", ")
-        if allCodesList[0] == currentCode or allCodesList[-1] == currentCode:
+        if allCodesList[0] == currentCode or allCodesList[-1] == currentCode or strCurrentCode in allCodes:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+            msg.setWindowTitle("Error: Repeated Entry")
+            msg.setText("The resource code '" + currentCode + "' is already a current city resource code. ")
+            msg.exec_()
             return
         if strCurrentCode not in allCodes:
             self.codeEdit.setText("")
@@ -220,11 +226,12 @@ class Ui_MainWindow(object):
         self.codeEdit.setAlignment(QtCore.Qt.AlignCenter)
         if allCodesList[0] == currentCode:
             allCodesList.pop(0)
-            newCodes = allCodesList
-            print(allCodesList)
+            updatedCodes = allCodesList
+            newCodes = ", ".join([str(elem) for i, elem in enumerate(updatedCodes)])
         elif allCodesList[-1] == currentCode:
             allCodesList.pop(-1)
-            newCodes = allCodesList
+            updatedCodes = allCodesList
+            newCodes = ", ".join([str(elem) for i, elem in enumerate(updatedCodes)])
         elif strCurrentCode in allCodes:
             newCodes = re.sub(strCurrentCode, ", ", allCodes)
         else:
@@ -237,7 +244,8 @@ class Ui_MainWindow(object):
             msg.exec_()
             return
         self.codeTextBrowser.setText("")
-        print("newCodes: " + newCodes)
+        print("newCodes: " + str(newCodes))
+
         self.codeTextBrowser.setText(str(newCodes))
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
