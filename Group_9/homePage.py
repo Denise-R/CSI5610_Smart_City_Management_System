@@ -140,9 +140,9 @@ class Ui_MainWindow(object):
         self.transportWindow.show()
 
     def booking(self):
-        import resource_booking
+        import Resource_Booking
         self.bookWindow = QtWidgets.QMainWindow()
-        self.bookUI = resource_booking.Ui_MainWindow()
+        self.bookUI = Resource_Booking.Ui_MainWindow()
         self.bookUI.setupUi(self.bookWindow)
         #MainWindow.hide()
         self.bookWindow.show()
