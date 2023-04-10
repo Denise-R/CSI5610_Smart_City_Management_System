@@ -1,5 +1,3 @@
-from PySide2.QtCore import *
-from PySide2.QtWidgets import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
@@ -175,9 +173,9 @@ class Ui_MainWindow(object):
         self.home.setText(_translate("FoodManagement", "Home"))
         self.help.setText(_translate("FoodManagement", "Help"))
         self.label.setText(_translate("MainWindow", "Resource Booking Management"))
-        self.resourceLabel.setText(QCoreApplication.translate("MainWindow", u"Select Resource:", None))
-        self.calendarLabel.setText(QCoreApplication.translate("MainWindow", u"Select Day(s)", None))
-        self.label4.setText(QCoreApplication.translate("MainWindow", u"Amount needed: ", None))
+        self.resourceLabel.setText(QtCore.QCoreApplication.translate("MainWindow", u"Select Resource:", None))
+        self.calendarLabel.setText(QtCore.QCoreApplication.translate("MainWindow", u"Select Day(s)", None))
+        self.label4.setText(QtCore.QCoreApplication.translate("MainWindow", u"Amount needed: ", None))
         self.comboBox.setItemText(0, _translate("MainWindow", "Public Bus"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Vehicle"))
         self.comboBox.setItemText(2, _translate("MainWindow", "Conference Room"))

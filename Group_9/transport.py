@@ -1,5 +1,3 @@
-from PySide2.QtCore import *
-from PySide2.QtWidgets import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
@@ -222,9 +220,9 @@ class Ui_MainWindow(object):
         self.comboBox_Start.setItemText(13, _translate("MainWindow", "Dead Marshes"))
         self.comboBox_Start.setItemText(14, _translate("MainWindow", "Mount Doom"))
 
-        self.startLabel.setText(QCoreApplication.translate("MainWindow", "Start :", None))
-        self.destinationLabel.setText(QCoreApplication.translate("MainWindow", "Destination :", None))
-        self.routeLabel.setText(QCoreApplication.translate("MainWindow", "Route", None))
+        self.startLabel.setText(QtCore.QCoreApplication.translate("MainWindow", "Start :", None))
+        self.destinationLabel.setText(QtCore.QCoreApplication.translate("MainWindow", "Destination :", None))
+        self.routeLabel.setText(QtCore.QCoreApplication.translate("MainWindow", "Route", None))
         self.submitButton.setText(_translate("MainWindow", "Submit"))
         self.comboBox_Dest.setItemText(0, _translate("MainWindow", "The Shire"))
         self.comboBox_Dest.setItemText(1, _translate("MainWindow", "Bree"))
@@ -243,9 +241,9 @@ class Ui_MainWindow(object):
         self.comboBox_Dest.setItemText(14, _translate("MainWindow", "Mount Doom"))
 
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Realms", None));
+        ___qtablewidgetitem.setText(QtCore.QCoreApplication.translate("MainWindow", u"Realms", None));
         ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Distance", None));
+        ___qtablewidgetitem1.setText(QtCore.QCoreApplication.translate("MainWindow", u"Distance", None));
 
 if __name__ == "__main__":
     import sys
