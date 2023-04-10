@@ -10,13 +10,14 @@ class Task(NamedTuple):
     responsible: str
     time_est: int
     description: str
+    priority: int
     uid: int
 
     def __str__(self) -> str:
-        return f"{self.uid};{self.department};{self.responsible};{self.time_est};{self.description}"
+        return f"{self.uid};{self.department};{self.responsible};{self.priority};{self.time_est};{self.description}"
 
     def to_dict(self) -> Dict:
-        return {"department": self.department, "responsible": self.responsible, "time_est": self.time_est,
+        return {"department": self.department, "responsible": self.responsible, "priority": self.priority, "time_est": self.time_est,
                 "description": self.description, "uid": self.uid}
 
 
@@ -134,6 +135,20 @@ class Ui_TaskSchedulerWindow(object):
         self.hours_spinBox.setObjectName("hours_SpinBox")
         self.verticalLayout.addWidget(self.hours_spinBox)
         self.hours_spinBox.setFont(font)
+
+        self.label_5 = QtWidgets.QLabel(self.groupBox)
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout.addWidget(self.label_5)
+        self.label_5.setFont(font)
+
+        self.priority_spinBox = QtWidgets.QSpinBox(self.groupBox)
+        self.priority_spinBox.setMinimum(1)
+        self.priority_spinBox.setMaximum(10)
+        self.priority_spinBox.setSingleStep(1)
+        self.priority_spinBox.setObjectName("priority_spinBox")
+        self.verticalLayout.addWidget(self.priority_spinBox)
+        self.priority_spinBox.setFont(font)
+
 
         self.label_3 = QtWidgets.QLabel(self.groupBox)
         self.label_3.setObjectName("label_3")
@@ -326,6 +341,7 @@ class Ui_TaskSchedulerWindow(object):
         self.label_4.setText(_translate("TaskSchedulerWindow", "Responsible:"))
         self.label_2.setText(_translate("TaskSchedulerWindow", "Time Estimate (hours):"))
         self.label_3.setText(_translate("TaskSchedulerWindow", "Description:"))
+        self.label_5.setText(_translate("TaskSchedulerWindow", "Priority:"))
         self.create_pushButton.setText(_translate("TaskSchedulerWindow", "Create Task"))
         self.groupBox_2.setTitle(_translate("TaskSchedulerWindow", "Current Tasks"))
         self.remove_pushButton.setText(_translate("TaskSchedulerWindow", "Remove Task"))
@@ -405,6 +421,7 @@ class Ui_TaskSchedulerWindow(object):
                                            t["responsible"],
                                            t["time_est"],
                                            t["description"],
+                                           t["priority"],
                                            t["uid"]))
 
                     self.tasks_listWidget.addItem(str(self.tasks[-1]))
@@ -424,7 +441,7 @@ class Ui_TaskSchedulerWindow(object):
             QtWidgets.QMessageBox(self, "Overbooked!", "Too many hours alocated,\nplease remove hours and try again!")
             return
 
-        sorted_tasks = sorted(self.tasks, key=attrgetter('time_est'))
+        sorted_tasks = sorted(self.tasks, key=attrgetter('priority'))
         for row in range(self.tableWidget.rowCount()):
             for column in range(self.tableWidget.columnCount()):
                 self.tableWidget.setItem(row, column, QtWidgets.QTableWidgetItem())
