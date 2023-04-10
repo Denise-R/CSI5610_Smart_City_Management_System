@@ -454,7 +454,7 @@ class Ui_TaskSchedulerWindow(object):
             del self.tasks[i.row()]
 
     def itemClicked_highlight_task(self, item):
-        if item.text() is not "":
+        if item.text() != "":
             uid = int(item.text())
         else:
             return
