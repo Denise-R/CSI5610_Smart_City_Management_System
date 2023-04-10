@@ -8,7 +8,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 540)
-        MainWindow.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
+        MainWindow.setWindowIcon(QtGui.QIcon(':/pictures/ou_logo.jpg'))
         MainWindow.setStyleSheet("background-color: #123456;")
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -153,7 +153,7 @@ class Ui_MainWindow(object):
 
         self.help = QtWidgets.QAction(MainWindow)
         self.help.triggered.connect(self.helpPressed)
-        self.help.setIcon(QtGui.QIcon('./pictures/question.png'))
+        self.help.setIcon(QtGui.QIcon(':/pictures/question.png'))
         self.menuOptions.addAction(self.help)
         self.menubar.addAction(self.menuOptions.menuAction())
 
@@ -183,7 +183,7 @@ class Ui_MainWindow(object):
         if checkCode != validSet and checkCode != {'0'} and checkCode != {'1'}:
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Warning)
-            msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+            msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
             msg.setWindowTitle("Error: Invalid Entry")
             msg.setText("The resource code '" + currentCode + "' is not a valid code. "
                                                               "This code should contain only 0's and 1's.  ")
@@ -195,7 +195,7 @@ class Ui_MainWindow(object):
         if allCodesList[0] == currentCode or allCodesList[-1] == currentCode or strCurrentCode in allCodes:
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Warning)
-            msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+            msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
             msg.setWindowTitle("Error: Repeated Entry")
             msg.setText("The resource code '" + currentCode + "' is already a current city resource code. ")
             msg.exec_()
@@ -213,7 +213,7 @@ class Ui_MainWindow(object):
         if checkCode != validSet and checkCode != {'0'} and checkCode != {'1'}:
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Warning)
-            msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+            msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
             msg.setWindowTitle("Error: Invalid Entry")
             msg.setText("The resource code '" + currentCode + "' is not a valid code. "
                                                               "This code should contain only 0's and 1's.  ")
@@ -237,7 +237,7 @@ class Ui_MainWindow(object):
         else:
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Warning)
-            msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+            msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
             msg.setWindowTitle("Error: Code Removed")
             msg.setText("The resource code '" + currentCode + "' was not found in the list of "
                         "all the city resource codes available.")
@@ -249,7 +249,7 @@ class Ui_MainWindow(object):
         self.codeTextBrowser.setText(str(newCodes))
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
         msg.setWindowTitle("Error: Invalid Entry")
         msg.setText("The resource code '" + currentCode + "' was removed from the list of "
                     "all the city resource codes available.")
@@ -259,7 +259,7 @@ class Ui_MainWindow(object):
     def popup(self):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
         msg.setWindowTitle("Info: Resource Management")
         vehicles = self.vehiclesText.toPlainText()
         personnel = self.personnelText.toPlainText()
@@ -284,7 +284,7 @@ class Ui_MainWindow(object):
     def helpPressed(self):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
         msg.setWindowTitle("Help: Resource Management")
         msg.setText("How to use Resource Management window described")
         msg.exec_()

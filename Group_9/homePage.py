@@ -1,10 +1,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+import pictures.pictures_rc
+
 class Ui_MainWindow(object):
     def setupUiHome(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(850, 550)
-        MainWindow.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
+        MainWindow.setWindowIcon(QtGui.QIcon(':/pictures/ou_logo.jpg'))
         MainWindow.setStyleSheet("background-color: #123456;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -28,7 +30,7 @@ class Ui_MainWindow(object):
 
         self.task = QtWidgets.QPushButton(self.frame1, clicked=self.task)
         self.task.setGeometry(QtCore.QRect(50, 170, 221, 111))
-        self.task.setStyleSheet("background-image : url(./pictures/task.png);")
+        self.task.setStyleSheet("background-image : url(:/pictures/task.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -38,7 +40,7 @@ class Ui_MainWindow(object):
 
         self.resource = QtWidgets.QPushButton(self.frame1, clicked=self.resource)
         self.resource.setGeometry(QtCore.QRect(290, 170, 221, 111))
-        self.resource.setStyleSheet("background-image : url(./pictures/resource.png);")
+        self.resource.setStyleSheet("background-image : url(:/pictures/resource.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -48,7 +50,7 @@ class Ui_MainWindow(object):
 
         self.transport = QtWidgets.QPushButton(self.frame1, clicked=self.transport)
         self.transport.setGeometry(QtCore.QRect(530, 170, 221, 111))
-        self.transport.setStyleSheet("background-image : url(./pictures/transport.png);")
+        self.transport.setStyleSheet("background-image : url(:/pictures/transport.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -58,7 +60,7 @@ class Ui_MainWindow(object):
 
         self.booking = QtWidgets.QPushButton(self.frame1,  clicked=self.booking)
         self.booking.setGeometry(QtCore.QRect(50, 320, 221, 111))
-        self.booking.setStyleSheet("background-image : url(./pictures/book.png);")
+        self.booking.setStyleSheet("background-image : url(:/pictures/book.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -68,7 +70,7 @@ class Ui_MainWindow(object):
 
         self.food = QtWidgets.QPushButton(self.frame1, clicked=self.food)
         self.food.setGeometry(QtCore.QRect(290, 320, 221, 111))
-        self.food.setStyleSheet("background-image : url(./pictures/food.png);")
+        self.food.setStyleSheet("background-image : url(:/pictures/food.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)
@@ -78,7 +80,7 @@ class Ui_MainWindow(object):
 
         self.emergency = QtWidgets.QPushButton(self.frame1, clicked=self.emergency)
         self.emergency.setGeometry(QtCore.QRect(530, 320, 221, 111))
-        self.emergency.setStyleSheet("background-image : url(./pictures/emergency.png);")
+        self.emergency.setStyleSheet("background-image : url(:/pictures/emergency.png);")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(12)

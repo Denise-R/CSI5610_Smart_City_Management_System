@@ -6,7 +6,7 @@ class Ui_FoodManagement(object):
     def setupUiFood(self, FoodManagement):
         FoodManagement.setObjectName("FoodManagement")
         FoodManagement.resize(907, 651)
-        FoodManagement.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
+        FoodManagement.setWindowIcon(QtGui.QIcon(':/pictures/ou_logo.jpg'))
         FoodManagement.setStyleSheet("background-color: #123456;")
 
         self.centralwidget = QtWidgets.QWidget(FoodManagement)
@@ -142,7 +142,7 @@ class Ui_FoodManagement(object):
 
         self.help = QtWidgets.QAction(FoodManagement)
         self.help.triggered.connect(self.helpPressed)
-        self.help.setIcon(QtGui.QIcon('./pictures/question.png'))
+        self.help.setIcon(QtGui.QIcon(':/pictures/question.png'))
         self.menuOptions.addAction(self.help)
         self.menubar.addAction(self.menuOptions.menuAction())
 
@@ -166,7 +166,7 @@ class Ui_FoodManagement(object):
 
     def popup(self):
         msg = QMessageBox()
-        msg.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
+        msg.setWindowIcon(QtGui.QIcon(':/pictures/ou_logo.jpg'))
         meals = self.outputText.toPlainText()
         if str(meals) == "0" or str(meals).isnumeric() == False:
             msg.setIcon(QMessageBox.Warning)
@@ -205,7 +205,7 @@ class Ui_FoodManagement(object):
     def helpPressed(self):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
         msg.setWindowTitle("Help: Food Consumption")
         msg.setText("How to use food Management window described")
         msg.exec_()

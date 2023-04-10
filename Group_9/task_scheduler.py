@@ -34,7 +34,7 @@ class Ui_TaskSchedulerWindow(object):
     def setupUi(self, TaskSchedulerWindow):
         TaskSchedulerWindow.setObjectName("TaskSchedulerWindow")
         TaskSchedulerWindow.resize(950, 720)
-        TaskSchedulerWindow.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
+        TaskSchedulerWindow.setWindowIcon(QtGui.QIcon(':/pictures/ou_logo.jpg'))
         TaskSchedulerWindow.setStyleSheet("background-color: #123456;")
 
         self.centralwidget = QtWidgets.QWidget(TaskSchedulerWindow)
@@ -286,9 +286,9 @@ class Ui_TaskSchedulerWindow(object):
         self.help.setObjectName("help")
         self.menuOptions.addAction(self.home)
         self.home.triggered.connect(self.homePressed)
-        self.home.setIcon(QtGui.QIcon('./pictures/home.png'))
+        self.home.setIcon(QtGui.QIcon(':/pictures/home.png'))
         self.help.triggered.connect(self.helpPressed)
-        self.help.setIcon(QtGui.QIcon('./pictures/question.png'))
+        self.help.setIcon(QtGui.QIcon(':/pictures/question.png'))
         self.menuOptions.addAction(self.help)
         self.menubar.addAction(self.menuOptions.menuAction())
 
@@ -476,7 +476,7 @@ class Ui_TaskSchedulerWindow(object):
     def helpPressed(self):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
         msg.setWindowTitle("Help: Task Scheduler Management")
         msg.setText("How to use Task Scheduler Management window described ...")
         msg.exec_()

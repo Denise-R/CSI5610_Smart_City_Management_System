@@ -5,7 +5,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("Transportation Management")
         MainWindow.resize(820, 530)
-        MainWindow.setWindowIcon(QtGui.QIcon('./pictures/ou_logo.jpg'))
+        MainWindow.setWindowIcon(QtGui.QIcon(':/pictures/ou_logo.jpg'))
         MainWindow.setStyleSheet("background-color: #123456;")
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.frame1)
         self.label.setGeometry(QtCore.QRect(285, 70, 496, 411))
         self.label.setObjectName("label")
-        self.pixmap = QtGui.QPixmap('./pictures/Map.jpg')
+        self.pixmap = QtGui.QPixmap(':/pictures/Map.jpg')
         self.label.setPixmap(self.pixmap)
 
         self.comboBox_Start = QtWidgets.QComboBox(self.frame1)
@@ -158,9 +158,9 @@ class Ui_MainWindow(object):
         self.help.setObjectName("help")
         self.menuOptions.addAction(self.home)
         self.home.triggered.connect(self.homePressed)
-        self.home.setIcon(QtGui.QIcon('./pictures/home.png'))
+        self.home.setIcon(QtGui.QIcon(':/pictures/home.png'))
         self.help.triggered.connect(self.helpPressed)
-        self.help.setIcon(QtGui.QIcon('./pictures/question.png'))
+        self.help.setIcon(QtGui.QIcon(':/pictures/question.png'))
         self.menuOptions.addAction(self.help)
         self.menubar.addAction(self.menuOptions.menuAction())
 
@@ -178,7 +178,7 @@ class Ui_MainWindow(object):
     def helpPressed(self):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
         msg.setWindowTitle("Help: Transportation Management")
         msg.setText("How to use transportation Management window described ...")
         msg.exec_()
@@ -188,7 +188,7 @@ class Ui_MainWindow(object):
         start = self.comboBox_Start.currentText()
         dest = self.comboBox_Dest.currentText()
         msg.setIcon(QMessageBox.Information)
-        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
         msg.setWindowTitle("Transportation Management")
         msg.setText("Transportation Management -- connect algorithm. \n\n The start location is : " + start +
                     "\n The destination is: " + dest)
