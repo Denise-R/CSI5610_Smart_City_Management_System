@@ -2,7 +2,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 import re
 
-#prevent duplicates in add code
 #cant remove new nums
 
 class Ui_MainWindow(object):
@@ -192,11 +191,14 @@ class Ui_MainWindow(object):
             return
         strCurrentCode = ", " + currentCode + ", "
         allCodes = self.codeTextBrowser.toPlainText()
-        self.codeEdit.setText("")
-        self.codeEdit.setAlignment(QtCore.Qt.AlignCenter)
-        allCodes = self.codeTextBrowser.toPlainText()
-        self.codeTextBrowser.setText("")
-        self.codeTextBrowser.setText(str(allCodes) + ", " + str(currentCode))
+        allCodesList = allCodes.split(", ")
+        if allCodesList[0] == currentCode or allCodesList[-1] == currentCode:
+            return
+        if strCurrentCode not in allCodes:
+            self.codeEdit.setText("")
+            self.codeEdit.setAlignment(QtCore.Qt.AlignCenter)
+            self.codeTextBrowser.setText("")
+            self.codeTextBrowser.setText(str(allCodes) + ", " + str(currentCode))
 
     def removeCode(self):
         currentCode = self.codeEdit.toPlainText()
@@ -213,19 +215,18 @@ class Ui_MainWindow(object):
             return
         strCurrentCode = ", " + currentCode + ", "
         allCodes = self.codeTextBrowser.toPlainText()
+        allCodesList = allCodes.split(", ")
         self.codeEdit.setText("")
         self.codeEdit.setAlignment(QtCore.Qt.AlignCenter)
-        if re.search(strCurrentCode, allCodes):
+        if allCodesList[0] == currentCode:
+            allCodesList.pop(0)
+            newCodes = allCodesList
+            print(allCodesList)
+        elif allCodesList[-1] == currentCode:
+            allCodesList.pop(-1)
+            newCodes = allCodesList
+        elif strCurrentCode in allCodes:
             newCodes = re.sub(strCurrentCode, ", ", allCodes)
-            self.codeTextBrowser.setText("")
-            self.codeTextBrowser.setText(str(newCodes))
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
-            msg.setWindowTitle("Error: Invalid Entry")
-            msg.setText("The resource code '" + currentCode + "' was removed from the list of "
-                        "all the city resource codes available.")
-            msg.exec_()
         else:
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Warning)
@@ -234,6 +235,18 @@ class Ui_MainWindow(object):
             msg.setText("The resource code '" + currentCode + "' was not found in the list of "
                         "all the city resource codes available.")
             msg.exec_()
+            return
+        self.codeTextBrowser.setText("")
+        print("newCodes: " + newCodes)
+        self.codeTextBrowser.setText(str(newCodes))
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
+        msg.setWindowTitle("Error: Invalid Entry")
+        msg.setText("The resource code '" + currentCode + "' was removed from the list of "
+                    "all the city resource codes available.")
+        msg.exec_()
+
 
     def popup(self):
         msg = QMessageBox()
@@ -256,7 +269,7 @@ class Ui_MainWindow(object):
             msg.exec_()
         else:
             msg.setText("The max number of 0's or vehicles requested: " + str(vehicles) +
-                        "\nThe max number of 1's or personnel requested:" + str(personnel) +
+                        "\nThe max number of 1's or personnel requested: " + str(personnel) +
                         "\n\n Solution : ...")
             msg.exec_()
 
