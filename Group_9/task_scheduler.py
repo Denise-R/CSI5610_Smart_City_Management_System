@@ -441,7 +441,7 @@ class Ui_TaskSchedulerWindow(object):
             QtWidgets.QMessageBox(self, "Overbooked!", "Too many hours alocated,\nplease remove hours and try again!")
             return
 
-        sorted_tasks = sorted(self.tasks, key=attrgetter('priority'))
+        sorted_tasks = sorted(self.tasks, key=attrgetter('priority'), reverse=True)
         for row in range(self.tableWidget.rowCount()):
             for column in range(self.tableWidget.columnCount()):
                 self.tableWidget.setItem(row, column, QtWidgets.QTableWidgetItem())
