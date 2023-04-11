@@ -376,22 +376,14 @@ class Ui_MainWindow(object):
 
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1080, 21))
-        self.menubar.setObjectName("menubar")
         self.menubar.setStyleSheet("background-color: white; color: black;")
 
         self.menuOptions = QtWidgets.QMenu(self.menubar)
-        self.menuOptions.setObjectName("menuOptions")
         MainWindow.setMenuBar(self.menubar)
 
-        self.home = QtWidgets.QAction(MainWindow)
-        self.home.setObjectName("home")
         self.help = QtWidgets.QAction(MainWindow)
-        self.help.setObjectName("help")
-        self.menuOptions.addAction(self.home)
-        self.home.triggered.connect(self.homePressed)
-        self.home.setIcon(QtGui.QIcon(':/pictures/home.png'))
         self.help.triggered.connect(self.helpPressed)
-        self.help.setIcon(QtGui.QIcon(':/pictures/question.png'))
+        self.help.setIcon(QtGui.QIcon('./pictures/question.png'))
         self.menuOptions.addAction(self.help)
         self.menubar.addAction(self.menuOptions.menuAction())
 
@@ -482,7 +474,6 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Emergency Management"))
         self.menuOptions.setTitle(_translate("MainWindow", "Options"))
-        self.home.setText(_translate("MainWindow", "Home"))
         self.help.setText(_translate("MainWindow", "Help"))
         self.label.setText(_translate("MainWindow", "Emergency Management"))
         self.CalculateETA.setText(_translate("MainWindow", "Calculate ETA"))

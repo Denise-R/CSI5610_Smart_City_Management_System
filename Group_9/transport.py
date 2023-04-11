@@ -145,24 +145,17 @@ class Ui_MainWindow(object):
 
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 641, 24))
-        self.menubar.setObjectName("menubar")
         self.menubar.setStyleSheet("background-color: white; color: black;")
 
         self.menuOptions = QtWidgets.QMenu(self.menubar)
-        self.menuOptions.setObjectName("menuOptions")
         MainWindow.setMenuBar(self.menubar)
 
-        self.home = QtWidgets.QAction(MainWindow)
-        self.home.setObjectName("home")
         self.help = QtWidgets.QAction(MainWindow)
-        self.help.setObjectName("help")
-        self.menuOptions.addAction(self.home)
-        self.home.triggered.connect(self.homePressed)
-        self.home.setIcon(QtGui.QIcon(':/pictures/home.png'))
         self.help.triggered.connect(self.helpPressed)
-        self.help.setIcon(QtGui.QIcon(':/pictures/question.png'))
+        self.help.setIcon(QtGui.QIcon('./pictures/question.png'))
         self.menuOptions.addAction(self.help)
         self.menubar.addAction(self.menuOptions.menuAction())
+        
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -200,7 +193,6 @@ class Ui_MainWindow(object):
         self.label.setText("")
 
         self.menuOptions.setTitle(_translate("FoodManagement", "Options"))
-        self.home.setText(_translate("FoodManagement", "Home"))
         self.help.setText(_translate("FoodManagement", "Help"))
 
         self.label1.setText(_translate("MainWindow", "Transportation Management"))

@@ -19,7 +19,7 @@ class Ui_FoodManagement(object):
         self.frame1.setFrameShadow(QtWidgets.QFrame.Raised)
 
         self.titleLabel = QtWidgets.QLabel(self.frame1)
-        self.titleLabel.setGeometry(QtCore.QRect(0, -1, 800, 51))
+        self.titleLabel.setGeometry(QtCore.QRect(0, -1, 830, 51))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(16)
@@ -29,13 +29,13 @@ class Ui_FoodManagement(object):
         self.titleLabel.setAlignment(QtCore.Qt.AlignCenter)
 
         self.line = QtWidgets.QFrame(self.frame1)
-        self.line.setGeometry(QtCore.QRect(20, 40, 760, 20))
+        self.line.setGeometry(QtCore.QRect(20, 40, 830, 20))
         self.line.setFrameShadow(QtWidgets.QFrame.Plain)
         self.line.setLineWidth(5)
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
 
         self.entryLabel = QtWidgets.QLabel(self.frame1)
-        self.entryLabel.setGeometry(QtCore.QRect(30, 90, 401, 16))
+        self.entryLabel.setGeometry(QtCore.QRect(30, 90, 401, 20))
         font.setBold(False)
         font.setFamily("Times New Roman")
         font.setPointSize(14)
@@ -151,7 +151,7 @@ class Ui_FoodManagement(object):
 
 
     def clear(self):
-        self.outputText.setText("0")
+        self.outputText.setText("")
         self.outputText.setAlignment(QtCore.Qt.AlignCenter)
 
     def enterNums(self, number):
@@ -168,7 +168,7 @@ class Ui_FoodManagement(object):
         msg = QMessageBox()
         msg.setWindowIcon(QtGui.QIcon(':/pictures/ou_logo.jpg'))
         meals = self.outputText.toPlainText()
-        if str(meals) == "0" or str(meals).isnumeric() == False:
+        if str(meals) == "0" or str(meals).isnumeric() is False:
             msg.setIcon(QMessageBox.Warning)
             msg.setWindowTitle("Error: Food Consumption")
             msg.setText("Please enter a positive whole number to represent the meals available.")
@@ -188,18 +188,12 @@ class Ui_FoodManagement(object):
             strDate = datetime.strptime(strDate, '%Y-%m-%d')
             starvationDate = strDate + timedelta(days=days)
             starvationDate = starvationDate.strftime('%m/%d/%Y')
+            strDate = strDate.strftime('%m/%d/%Y')
             msg.setText("\nCurrent number of meal(s): " + str(meals) +
-                                "\n\nMinimum number of days to consume meal(s): " + str(days) +
-                        "\n\nMeals will run out on: " + str(starvationDate))
+                        "\nStart date: " + str(strDate) +
+                        "\nEnd date: " + str(starvationDate) +
+                        "\n\nIt will take " + str(days) + " day(s) to run out of " + str(meals) + " meal(s).")
             msg.exec_()
-
-    def homePressed(self):
-        import homePage
-        self.homeWindow = QtWidgets.QMainWindow()
-        self.homeui = homePage.Ui_MainWindow()
-        self.homeui.setupUiHome(self.homeWindow)
-        #FoodManagement.hide()
-        self.homeWindow.show()
 
 
     def helpPressed(self):
@@ -207,7 +201,13 @@ class Ui_FoodManagement(object):
         msg.setIcon(QMessageBox.Information)
         msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
         msg.setWindowTitle("Help: Food Consumption")
-        msg.setText("How to use food Management window described")
+        msg.setText("This window optimizes the number of days it takes for students in the city's public school "
+                    "districts to consume a given number of school lunch meal(s). "
+                    "\n\nTo calculate the number of days it will take for the meal(s) to run out, enter:\n\t"
+                    "1. The number of meal(s) available\n\t"
+                    "2. The first day these meal(s) will be consumed\n\n"
+                    "Once you submit these parameters, the total number of days it will take to run out of meals "
+                    "and the end date will be displayed. ")
         msg.exec_()
 
     def retranslateUi(self, FoodManagement):
@@ -278,4 +278,3 @@ if __name__ == "__main__":
     ui.setupUiFood(FoodManagement)
     FoodManagement.show()
     sys.exit(app.exec_())
-

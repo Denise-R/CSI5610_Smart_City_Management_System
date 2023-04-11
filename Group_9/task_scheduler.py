@@ -288,22 +288,14 @@ class Ui_TaskSchedulerWindow(object):
 
         self.menubar = QtWidgets.QMenuBar(TaskSchedulerWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 641, 24))
-        self.menubar.setObjectName("menubar")
         self.menubar.setStyleSheet("background-color: white; color: black;")
 
         self.menuOptions = QtWidgets.QMenu(self.menubar)
-        self.menuOptions.setObjectName("menuOptions")
         TaskSchedulerWindow.setMenuBar(self.menubar)
 
-        self.home = QtWidgets.QAction(TaskSchedulerWindow)
-        self.home.setObjectName("home")
         self.help = QtWidgets.QAction(TaskSchedulerWindow)
-        self.help.setObjectName("help")
-        self.menuOptions.addAction(self.home)
-        self.home.triggered.connect(self.homePressed)
-        self.home.setIcon(QtGui.QIcon(':/pictures/home.png'))
         self.help.triggered.connect(self.helpPressed)
-        self.help.setIcon(QtGui.QIcon(':/pictures/question.png'))
+        self.help.setIcon(QtGui.QIcon('./pictures/question.png'))
         self.menuOptions.addAction(self.help)
         self.menubar.addAction(self.menuOptions.menuAction())
 
@@ -325,7 +317,6 @@ class Ui_TaskSchedulerWindow(object):
         _translate = QtCore.QCoreApplication.translate
         TaskSchedulerWindow.setWindowTitle(_translate("TaskSchedulerWindow", "Task Scheduler"))
         self.menuOptions.setTitle(_translate("FoodManagement", "Options"))
-        self.home.setText(_translate("FoodManagement", "Home"))
         self.help.setText(_translate("FoodManagement", "Help"))
         self.label1.setText(_translate("MainWindow", "Task Scheduler Management"))
         self.groupBox.setTitle(_translate("TaskSchedulerWindow", "New Task"))
