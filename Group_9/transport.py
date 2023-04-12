@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
+import shortestroute as sr
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -134,11 +135,16 @@ class Ui_MainWindow(object):
         __qtablewidgetitem1 = QtWidgets.QTableWidgetItem()
         __qtablewidgetitem1.setFont(font)
         self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        self.tableWidget.setColumnCount(2)
+        self.tableWidget.setRowCount(1)
+        self.tableWidget.setShowGrid(True)
+        self.tableWidget.setItem(0, 0, QtWidgets.QTableWidgetItem("Null"))
+        self.tableWidget.setItem(0, 1, QtWidgets.QTableWidgetItem("Null"))
         self.tableWidget.setStyleSheet("border: 1px solid black;")
         self.tableWidget.setObjectName(u"tableWidget")
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(9)
+        font.setPointSize(7)
         self.tableWidget.setFont(font)
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -176,16 +182,34 @@ class Ui_MainWindow(object):
         msg.setText("How to use transportation Management window described ...")
         msg.exec_()
 
+    def get_path(self, path):
+        pathLength = len(path)
+        self.tableWidget.setRowCount(pathLength + 1)
+        path.reverse()
+        end = path[-1]
+        print(end)
+        self.tableWidget.setItem(0, 1, QtWidgets.QTableWidgetItem('0'))
+        self.tableWidget.setItem(pathLength - 1, 0, QtWidgets.QTableWidgetItem(end))
+        self.tableWidget.setItem(pathLength, 0, QtWidgets.QTableWidgetItem('Total'))
+        total = 0
+        for i in range(0, pathLength - 1):
+            a = path[i]
+            b = path[i + 1]
+            val = sr.init_graph[a]
+            dist = val[b]
+            self.tableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(a))
+            self.tableWidget.setItem(i + 1, 1, QtWidgets.QTableWidgetItem(str(dist)))
+            total = total + dist
+        self.tableWidget.setItem(pathLength, 1, QtWidgets.QTableWidgetItem(str(total)))
+
+
     def racecar(self):
         msg = QMessageBox()
         start = self.comboBox_Start.currentText()
-        dest = self.comboBox_Dest.currentText()
-        msg.setIcon(QMessageBox.Information)
-        msg.setWindowIcon(QtGui.QIcon(':/pictures/question.png'))
-        msg.setWindowTitle("Transportation Management")
-        msg.setText("Transportation Management -- connect algorithm. \n\n The start location is : " + start +
-                    "\n The destination is: " + dest)
-        msg.exec_()
+        end = self.comboBox_Dest.currentText()
+        previous_nodes, shortest_path = sr.dijkstra_algorithm(graph=sr.graph, start_node=start)
+        path = sr.print_result(previous_nodes, shortest_path, start_node=start, target_node=end)
+        self.get_path(path)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

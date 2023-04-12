@@ -91,9 +91,9 @@ def print_result(previous_nodes, shortest_path, start_node, target_node):
  
     # Add the start node manually
     path.append(start_node)
-    
-    print("We found the following best path with a value of {}.".format(shortest_path[target_node]))
-    print(" -> ".join(reversed(path)))
+    '''print("We found the following best path with a value of {}.".format(shortest_path[target_node]))
+    print(" -> ".join(reversed(path)))'''
+    return path
 
 
 
