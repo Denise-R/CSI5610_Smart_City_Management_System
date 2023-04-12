@@ -1,5 +1,7 @@
 import sys
  
+ # Used Udacity as a reference
+
 class Graph(object):
     def __init__(self, nodes, init_graph):
         self.nodes = nodes
