@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="041f07e2-8c36-4200-8fd3-afc11440b1a0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/.idea/Group_9.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/.idea/Group_9.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/Medium_Project_AV.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/Medium_Project_AV.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/Resource_Booking.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/Resource_Booking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/pictures/pictures.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/pictures/pictures.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/pictures/pictures_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/pictures/pictures_rc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/resourceBooking.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/resourceBooking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group_9/shortestroute.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group_9/shortestroute.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medium_Project_AV.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Medium_Project_AV.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stephen_Upload/Resource_Booking.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Stephen_Upload/Resource_Booking.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stephen_Upload/ShortestRoute.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stephen_Upload/ShortestRoute.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stephen_Upload/ShortestRoute.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/Stephen_Upload/ShortestRoute.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stephen_Upload/ShortestRoute.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Stephen_Upload/ShortestRoute.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stephen_Upload/ShortestRoute_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stephen_Upload/ShortestRoute_rc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stephen_Upload/qtTestUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stephen_Upload/qtTestUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corporate_flight_bookings.py" beforeDir="false" afterPath="$PROJECT_DIR$/corporate_flight_bookings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/irma/corrected/map.py" beforeDir="false" afterPath="$PROJECT_DIR$/irma/corrected/map.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/irma/map.py" beforeDir="false" afterPath="$PROJECT_DIR$/irma/map.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/irma/map.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/irma/map.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/res.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/res/res.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/main.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viljo/task_scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/viljo/task_scheduler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viljo/task_scheduler_ui.ui" beforeDir="false" afterPath="$PROJECT_DIR$/viljo/task_scheduler_ui.ui" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OKkrRZOznYVlYEqAIl6ygjmcHb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/denis/Documents/GitHub/CSI5610_Smart_City_Management_System/Group_9"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="041f07e2-8c36-4200-8fd3-afc11440b1a0" name="Changes" comment="" />
+      <created>1681316859008</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681316859008</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

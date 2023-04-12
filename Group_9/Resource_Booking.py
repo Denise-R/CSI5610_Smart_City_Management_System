@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-
+from typing import List
 import pictures.pictures_rc
 
 class Ui_MainWindow(object):
@@ -146,6 +146,33 @@ class Ui_MainWindow(object):
         msg.setText("How to use Resource Booking Management window described ...")
         msg.exec_()
 
+    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+        # implementing scan algorithm
+
+        # initiate results list
+        results = [0] * n
+        # initiate empty list for flight and seats
+        flights = []
+
+        for (i, j, k) in bookings:
+            # append the start(i)/end(j) (inclusive), and corresponding seats (k)
+            flights.append((i - 1, k))
+            flights.append((j, -k))
+        # print(flights)
+        # sort the flights list
+        flights.sort()
+        # print(flights)
+        for flight in flights:
+            # if flights surpasses the length of n
+            if flight[0] >= n:
+                continue
+            # else
+            results[flight[0]] += flight[1]
+
+        # prefix sum
+        for i in range(1, n):
+            results[i] += results[i - 1]
+        return results
 
     def book(self):
         msg = QMessageBox()
@@ -153,12 +180,22 @@ class Ui_MainWindow(object):
         strDate = date.toString()
         resource = self.comboBox.currentText()
         amount = self.spinBox.value()
+        list = self.resourceDict[resource]
+        x = str(self.corpFlightBookings(list, amount))[1:-1]
         msg.setIcon(QMessageBox.Information)
         msg.setWindowIcon(QtGui.QIcon('./pictures/question.png'))
         msg.setWindowTitle("Resource Booking Management")
-        msg.setText("resource booked -- connect algorithm. \n\n The date is : " + strDate +
-                    "\n The resource requested is: " + resource + "\n The amount needed is: " + str(amount))
+        msg.setText("The date needed is : " + strDate +
+                    "\n The resource requested is: " + resource + "\n The number of hours requested is: " + str(amount)
+                    + "\n\nThe total number of resource(es) reserved at each location is: " + x)
         msg.exec_()
+
+    resourceDict = {
+            "Public Bus": [[1,2,10],[2,3,20],[2,5,25]],
+            "Vehicle": [[1,2,10],[2,2,15]],
+            "Conference Room": [[1,2,6],[2,3,12],[2,4,22],[2,5,6]],
+            "Book":  [[1,2,10],[2,3,30],[3,6,44],[2,4,5],[4,5,7]]
+        }
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -168,7 +205,7 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Resource Booking Management"))
         self.resourceLabel.setText(QtCore.QCoreApplication.translate("MainWindow", u"Select Resource:", None))
         self.calendarLabel.setText(QtCore.QCoreApplication.translate("MainWindow", u"Select Day(s)", None))
-        self.label4.setText(QtCore.QCoreApplication.translate("MainWindow", u"Amount needed: ", None))
+        self.label4.setText(QtCore.QCoreApplication.translate("MainWindow", u"Hour(s) needed: ", None))
         self.comboBox.setItemText(0, _translate("MainWindow", "Public Bus"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Vehicle"))
         self.comboBox.setItemText(2, _translate("MainWindow", "Conference Room"))
