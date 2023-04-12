@@ -422,6 +422,7 @@ class Ui_TaskSchedulerWindow(object):
                                self.responsible_lineEdit.text(),
                                self.hours_spinBox.value(),
                                self.description_textEdit.toPlainText(),
+                               self.priority_spinBox.value(),
                                self.get_uid()))
 
         self.tasks_listWidget.addItem(str(self.tasks[-1]))
@@ -446,8 +447,8 @@ class Ui_TaskSchedulerWindow(object):
                     d[1] += task.time_est
                     break
 
-        before = 0
         for i, day in enumerate(schedule):
+            before = 0
             for task in day[0]:
                 for x in range(before, before + task.time_est):
                     item = self.tableWidget.item(x, i)
