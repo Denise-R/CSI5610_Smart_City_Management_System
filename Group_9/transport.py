@@ -187,7 +187,6 @@ class Ui_MainWindow(object):
         self.tableWidget.setRowCount(pathLength + 1)
         path.reverse()
         end = path[-1]
-        print(end)
         self.tableWidget.setItem(0, 1, QtWidgets.QTableWidgetItem('0'))
         self.tableWidget.setItem(pathLength - 1, 0, QtWidgets.QTableWidgetItem(end))
         self.tableWidget.setItem(pathLength, 0, QtWidgets.QTableWidgetItem('Total'))
