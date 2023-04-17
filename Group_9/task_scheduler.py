@@ -379,7 +379,7 @@ class Ui_TaskSchedulerWindow(object):
 
     def save_tasks(self):
         t_file = QtWidgets.QFileDialog.getSaveFileName(None, "Save Tasks", "", "JSON (*.json)")
-        if t_file:
+        if t_file[0]:
             tmp_dict = [x.to_dict() for x in self.tasks]
             with open(t_file[0], "w") as jf:
                 json.dump(tmp_dict, jf)
@@ -395,14 +395,14 @@ class Ui_TaskSchedulerWindow(object):
             csv_list.append(txt)
 
         s_file = QtWidgets.QFileDialog.getSaveFileName(None, "Save Schedule", "", "CSV (*.csv)")
-        if s_file:
+        if s_file[0]:
             with open(s_file[0], "w") as cf:
                 for l in csv_list:
                     cf.write(l + "\n")
 
     def clicked_load_tasks(self):
         t_file = QtWidgets.QFileDialog.getOpenFileName(None, "Load Tasks", "", "JSON (*.json)")
-        if t_file:
+        if t_file[0]:
             with open(t_file[0], "r") as jf:
                 j_tasks = json.load(jf)
                 self.tasks.clear()
@@ -430,7 +430,7 @@ class Ui_TaskSchedulerWindow(object):
     def clicked_generate_schedule(self):
         total_time = sum(t.time_est for t in self.tasks)
         if total_time > (self.tableWidget.rowCount() * self.tableWidget.columnCount()):
-            QtWidgets.QMessageBox(self, "Overbooked!", "Too many hours alocated,\nplease remove hours and try again!")
+            QtWidgets.QMessageBox.warning(None, "Overbooked!", "Too many hours alocated,\nplease remove hours and try again!")
             return
 
         sorted_tasks = sorted(self.tasks, key=attrgetter('priority'), reverse=True)
